@@ -8,6 +8,7 @@ import cartRoutes from "./routes/cartRoutes.js";
 import couponRoutes from "./routes/couponRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
 import analyticsRoutes from "./routes/analyticsRoutes.js";
+import path from "path";
 
 dotenv.config();
 
