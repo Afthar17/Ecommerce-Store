@@ -1,16 +1,14 @@
 import express from 'express';
+import { signUp,login,logout,refreshToken,getUserProfile} from '../controllers/authController.js';
+import { protectRoute } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
-router.get('/signup',(req,res)=>{
-    res.send('signup route')
-})
-router.get('/login',(req,res)=>{
-    res.send('login route')
-})
-router.get('/logout',(req,res)=>{
-    res.send('logout route')
-})
+router.post('/signup',signUp)
+router.post('/login',login)
+router.post('/logout',logout)
+router.post('/refresh-token',refreshToken)
+router.get('/profile',protectRoute,getUserProfile)
 
 
 export default router

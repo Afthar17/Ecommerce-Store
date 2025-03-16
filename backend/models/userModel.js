@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+import bcrypt from 'bcrypt'
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -18,16 +18,17 @@ const userSchema = new mongoose.Schema({
     },
     cartItems:[
         {
+            productId:{
+                type: mongoose.Schema.Types.ObjectId,
+                required: true,
+                ref: "Product"
+            },
             quantity:{
                 type: Number,
                 required: true,
                 default: 1
             },
-            product:{
-                type: mongoose.Schema.Types.ObjectId,
-                required: true,
-                ref: "Product"
-            }
+            
         }
     ],
     role: {
